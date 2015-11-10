@@ -12,10 +12,17 @@
       100 followers
     </div>
     <div class="col-md-9">
-    
+        <h3>All Tweets</h3>
       <!-- display tweets here -->
       {% for tweet in tweets %}
-        <li>{{tweet.text}}</li>
+        <li class="tweetbox">
+            <img>
+            <span class="content by">{{tweet.name}}</span>
+            <br>
+            <span class="content">{{tweet.text}}<span>
+            <br>
+            <a href="#" class="content">Re-tweet</a>
+        </li>
       {% endfor %}
       
     </div>
