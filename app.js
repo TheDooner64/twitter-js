@@ -1,5 +1,3 @@
-// Bobby's comment
-
 var express = require("express");
 
 var app = express();
