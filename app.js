@@ -1,15 +1,17 @@
 var express = require("express");
 var swig = require("swig");
+var routes = require("./routes/");
 var app = express();
 
-var port = 3000;
-
+// Default settings for template engine
 app.engine('html', swig.renderFile);
 app.set('view engine', 'html');
 app.set('views', __dirname + '/views');
 app.set('view cache', false);
 swig.setDefaults({ cache : false});
 
+// Set up server
+var port = 3000;
 app.listen(port, function() {
     console.log("Listening on port " + port);
 });
@@ -19,24 +21,4 @@ app.use(function(req, res, next) {
     next();
 });
 
-app.get("/", function(req, res) {
-    // console.log(req.method);
-    var localsForSwig = { 
-		title: "whatever",
-		people: [{
-			name: "bobby"
-		},
-		{
-			name: "everett"
-		}]
-	}
-    res.render('index', localsForSwig);
-});
-   
-
-app.post("/", function(req, res) {
-    // console.log(req.method);
-    res.send("Hello world using POST");
-});
-
-
+app.use("/", routes);
