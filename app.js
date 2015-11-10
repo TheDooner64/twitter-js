@@ -1,12 +1,14 @@
 var express = require("express");
 var swig = require("swig");
-var mySwig = new swig.Swig();
-var fs = require('fs');
 var app = express();
 
 var port = 3000;
 
-
+app.engine('html', swig.renderFile);
+app.set('view engine', 'html');
+app.set('views', __dirname + '/views');
+app.set('view cache', false);
+swig.setDefaults({ cache : false});
 
 app.listen(port, function() {
     console.log("Listening on port " + port);
@@ -19,21 +21,16 @@ app.use(function(req, res, next) {
 
 app.get("/", function(req, res) {
     // console.log(req.method);
-    fs.readFile("./views/index.html", function(err, contents) {
-		if(err) throw err;
-		 var sendMe = mySwig.render(contents.toString(), {
-		 	locals: {
-				title: "whatever",
-				people: [{
-					name: "bobby"
-				},
-				{
-					name: "everett"
-				}]
-			}
-		});
-    	res.send(sendMe);
-	});
+    var localsForSwig = { 
+		title: "whatever",
+		people: [{
+			name: "bobby"
+		},
+		{
+			name: "everett"
+		}]
+	}
+    res.render('index', localsForSwig);
 });
    
 
