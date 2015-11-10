@@ -27,16 +27,18 @@
       </div>
         <h3>All Tweets</h3>
       <!-- display tweets here -->
-      {% for tweet in tweets %}
-        <li class="tweetbox">
-            <img>
-            <a href="/users/{{tweet.name}}" class="content by">{{tweet.name}}</a>
-            <br>
-            <span class="content">{{tweet.text}}<span>
-            <br>
-            <a href="#" class="content">Re-tweet</a>
-        </li>
-      {% endfor %}
+        <ul id="tweet-list">
+        {% for tweet in tweets %}
+          <li class="tweetbox">
+              <img>
+              <a href="/users/{{tweet.name}}" class="content by">{{tweet.name}}</a>
+              <br>
+              <span class="content">{{tweet.text}}<span>
+              <br>
+              <a href="#" class="content">Re-tweet</a>
+          </li>
+        {% endfor %}
+        </ul>
       
     </div>
   </div>
