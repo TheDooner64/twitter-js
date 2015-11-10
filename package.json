@@ -1,0 +1,24 @@
+{
+  "name": "twitter-js",
+  "version": "1.0.0",
+  "description": "Twitter clone to learn Express",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheDooner64/twitter-js.git"
+  },
+  "keywords": [],
+  "author": "Robert Muldoon, Everett Ross",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheDooner64/twitter-js/issues"
+  },
+  "homepage": "https://github.com/TheDooner64/twitter-js#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
