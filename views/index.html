@@ -3,7 +3,7 @@
 {% block content %}
   
   <div class="page-header">
-    <h1>Welcome to Twitter.js, Nimit!</h1>
+    <h1>{{title}}</h1>
   </div>
   <div class="row">
     <div class="col-md-3">
@@ -12,12 +12,25 @@
       100 followers
     </div>
     <div class="col-md-9">
+      <div class="sendTweet">
+        {% if showForm %}
+          <form action="/submit" method="POST">
+            <label for="name_field">Name:</label>
+            <input name="name" type="text" id="name_field" />
+
+            <label for="text_field">Text:</label>
+            <input name="text" type="text" id="text_field" style="width: 350px;" />
+
+            <input type="submit" value="Submit" />
+          </form>
+          {% endif %}
+      </div>
         <h3>All Tweets</h3>
       <!-- display tweets here -->
       {% for tweet in tweets %}
         <li class="tweetbox">
             <img>
-            <span class="content by">{{tweet.name}}</span>
+            <a href="/users/{{tweet.name}}" class="content by">{{tweet.name}}</a>
             <br>
             <span class="content">{{tweet.text}}<span>
             <br>

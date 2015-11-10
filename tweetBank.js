@@ -3,7 +3,7 @@ var _ = require("underscore");
 var data = [];
 
 var add = function (name, text) {
-  data.push({ name: name, text: text });
+  data.push({ name: name, text: text, id: data.length.toString() });
 };
 
 var list = function () {
@@ -33,4 +33,5 @@ var getFakeTweet = function() {
 
 for(var i=0; i<10; i++) {
   module.exports.add( getFakeName(), getFakeTweet() );
+  module.exports.add( "nimit", getFakeTweet() );
 }
