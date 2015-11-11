@@ -88,7 +88,9 @@
       // When 'new_tweet' events are fired, do something with the packaged tweet
       socket.on('new_tweet', function (tweet) { 
         var newTweet = '<li>test</li>';
-        document.getElementById("tweet-list").appendChild(newTweet);
+        var ele = document.createElement('li');
+        ele.innerText = newTweet;
+        document.getElementById("tweet-list").appendChild(ele);
       }); 
     </script>
   </body>
