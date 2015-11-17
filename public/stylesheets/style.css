@@ -41,6 +41,12 @@ code {
   font-size: 80%;
 }
 
+#profileImg {
+  float: left;
+  height: 200px;
+  width: auto;
+}
+
 .tweetbox {
   padding: 7px;
   list-style-type: none;
@@ -48,13 +54,14 @@ code {
 
 .tweetbox img {
   float: left;
-  height: 48px;
-  width: 48px;
-  content:url("http://lorempixel.com/48/48");
+  height: 50px;
+  width: auto;
 }
+
 .content {
   margin-left: 60px;
 }
+
 .by {
   font-weight: bold;
 }
